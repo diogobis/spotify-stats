@@ -15,13 +15,13 @@
    ```
 
 3. **Spotify Web Credentials:** access the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard) and create or access a app with the Web API enabled:
-<img  height="100" src="./readme/spotify_api.png"/>
+<img src="./readme/spotify_api.PNG"/>
 
 4. **Spotify Callback:** make sure [http://localhost:4200/spotify/callback](http://localhost:4200/spotify/callback) is added to your app's callback routes:
-<img  height="100" src="./readme/spotify_route.png"/>
+<img src="./readme/spotify_route.PNG"/>
 
 5. **Spotify Credentials:** access your app settings and copy your **Client ID** and **Client secret** to environment files:
-<img  height="100" src="./readme/spotify_credentials.png"/>
+<img src="./readme/spotify_credentials.PNG"/>
 
 6. **Run the project:** now you can run the project using:
   ```sh
