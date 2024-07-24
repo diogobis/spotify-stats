@@ -1,0 +1,193 @@
+body {
+  padding: 0;
+  margin: 0;
+
+  background-color: #111111 !important;
+}
+
+* {
+  font-family: "Montserrat", sans-serif;
+  /* color: #f1f1f1; */
+}
+
+div,
+select,
+span {
+  color: #f1f1f1;
+}
+
+.container {
+  width: 60vw;
+  margin: auto;
+
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.grid {
+  padding: 12px;
+  /* width: fit-content; */
+
+  display: grid;
+  grid-template-columns: 32px 64px 0.5fr 1fr 64px;
+  grid-template-rows: 64px;
+  gap: 12px;
+  align-items: center;
+}
+
+.grid > div {
+  padding: 12px;
+}
+
+.item-info {
+  /* display: inline-block; */
+  width: 300px;
+}
+
+.text-center {
+  justify-content: center;
+  text-align: center;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 4px;
+}
+
+.tag {
+  color: #f1f1f1;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.grid img {
+  width: 64px;
+}
+
+.item-title {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.form,
+.form > select {
+  font-size: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+
+  padding: 12px;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #3a3a3a;
+}
+
+.form > select {
+  padding: 0 4px;
+  background-color: #3a3a3a;
+}
+
+.items {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+
+  border-radius: 12px;
+  overflow: hidden;
+
+  position: relative;
+}
+
+.item > * {
+  z-index: 1000;
+}
+
+.item > img {
+  max-width: 120px;
+  min-width: 120px;
+  min-height: 120px;
+  max-height: 120px;
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  justify-content: center;
+
+  width: 65%;
+}
+
+.extra-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+
+  font-size: 16px;
+}
+
+.extra-info-name {
+  font-weight: 600;
+}
+
+.position-label {
+  position: absolute;
+  z-index: 1;
+
+  right: 15px;
+  top: -15px;
+
+  color: #3a3a3a;
+
+  font-size: 120px;
+  font-weight: 900;
+  text-align: right;
+  user-select: none;
+}
+
+.container,
+.item,
+.form {
+  box-shadow: 0 0 12px 0px #000;
+}
+
+.taga {
+  padding: 0 6px;
+}
+
+.tagsa {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.btn-spotify {
+  background-color: #2fd36a;
+  color: #111111 !important;
+
+  border: none;
+  outline: none;
+
+  font-size: 22px;
+  border-radius: 8px;
+  padding: 16px 24px;
+
+  font-weight: 700;
+  cursor: pointer;
+}

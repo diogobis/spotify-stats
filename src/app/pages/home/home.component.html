@@ -1,0 +1,114 @@
+<div class="container">
+  <form class="form" *ngIf="isLoggedIn">
+    <span>My top</span>
+
+    <select name="limit" [(ngModel)]="limit" (change)="get()">
+      <option value="10">10</option>
+      <option value="25">25</option>
+      <option value="50">50</option>
+    </select>
+
+    <select name="type" [(ngModel)]="type" (change)="items = []; get()">
+      <option value="artists">artists</option>
+      <option value="tracks">tracks</option>
+    </select>
+
+    <span>from the last</span>
+    <select name="time_range" [(ngModel)]="time_range" (change)="get()">
+      <option value="short_term">month</option>
+      <option value="medium_term">6 months</option>
+      <option value="long_term">year</option>
+    </select>
+  </form>
+
+  <form class="form" *ngIf="!isLoggedIn">
+    <button class="btn-spotify" (click)="spotifyLogin()">
+      Login with Spotify <fa-icon [icon]="faSpotify" />
+    </button>
+  </form>
+
+  <div class="items" *ngIf="isLoggedIn">
+    @for (item of items; track $index) {
+    <div class="item">
+      <span class="position-label">{{ $index + 1 }}</span>
+
+      <img
+        [src]="
+          type === 'artists'
+            ? item.images.length > 0
+              ? item.images[0].url
+              : ''
+            : item.album.images.length > 0
+            ? item.album.images[0].url
+            : ''
+        "
+      />
+      <div class="item-info">
+        <span class="item-title">{{ item.name }}</span>
+        <div class="tagsa">
+          @if (type === 'artists') { @for (genre of item.genres; track $index) {
+          <span class="taga" [style.background]="stringToColour(genre)">{{
+            genre
+          }}</span>
+          } }@else { @for (artist of item.artists; track $index; let last =
+          $last) {
+          <span class="taga" [style.background]="stringToColour(artist.id)">{{
+            artist.name
+          }}</span>
+          <!-- <span *ngIf="!last">, </span> -->
+          } }
+        </div>
+      </div>
+
+      <div class="extra-info">
+        @for (info of formatInfo(item); track $index) {
+        <div>
+          <span class="extra-info-name">{{ info[0] }}:</span
+          ><span> {{ info[1] }}</span>
+        </div>
+        }
+      </div>
+    </div>
+
+    <!-- <div class="item">
+      <span class="position-label">{{ $index + 1 }}</span>
+
+      <img
+        [src]="
+          type === 'artists'
+            ? item.images.length > 0
+              ? item.images[0].url
+              : ''
+            : item.album.images.length > 0
+            ? item.album.images[0].url
+            : ''
+        "
+      />
+      <div class="item-info">
+        <span class="item-title">{{ item.name }}</span>
+        <div class="tags">
+          @if (type === 'artists') { @for (genre of item.genres; track $index) {
+          <span class="tag" [style.background]="stringToColour(genre)">{{
+            genre
+          }}</span>
+          } }@else { @for (artist of item.artists; track $index; let last =
+          $last) {
+          <span class="tag" [style.background]="stringToColour(artist.id)">{{
+            artist.name
+          }}</span>
+          } }
+        </div>
+      </div>
+
+      <div class="extra-info">
+        @for (info of formatInfo(item); track $index) {
+        <div>
+          <span class="extra-info-name">{{ info[0] }}:</span
+          ><span> {{ info[1] }}</span>
+        </div>
+        }
+      </div>
+    </div> -->
+    }
+  </div>
+</div>
